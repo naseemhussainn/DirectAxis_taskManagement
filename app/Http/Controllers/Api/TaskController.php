@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Services\TaskService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
 {

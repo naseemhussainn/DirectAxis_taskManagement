@@ -27,6 +27,14 @@ class SendTaskAssignmentNotification implements ShouldQueue
 
     public function handle(): void
     {
-        Mail::to($this->user->email)->send(new TaskAssigned($this->task));
+        try {
+            Mail::to($this->user->email)->send(new TaskAssigned($this->task));
+        } catch (\Exception $e) {
+            \Log::error("Failed to send email: {$e->getMessage()}", [
+                'task_id' => $this->task->id,
+                'user_id' => $this->user->id,
+                'trace' => $e->getTraceAsString()
+            ]);
+        }
     }
 }

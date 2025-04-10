@@ -29,8 +29,15 @@ class TaskAssigned extends Mailable
 
     public function content(): Content
     {
+    
+        $view = view()->exists('emails.task-assigned') 
+            ? 'emails.task-assigned' 
+            : function ($message) {
+                $message->text("A new task '{$this->task->title}' has been assigned to you.");
+              };
+        
         return new Content(
-            view: 'emails.task-assigned',
+            view: $view,
             with: [
                 'task' => $this->task,
             ],
