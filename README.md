@@ -22,7 +22,7 @@ A Laravel 11 based API for managing tasks with features like task assignment, co
 
 1. Clone the repository
 ```bash
-git clone [repository-url]
+git clone https://github.com/naseemhussainn/DirectAxis_taskManagement
 cd task-management-system
 ```
 
@@ -127,7 +127,7 @@ Authorization: Bearer {your_token}
 {
     "title": "Complete Project",
     "description": "Finish the Laravel task management project",
-    "due_date": "2023-12-31 12:00:00"
+    "due_date": "2025-12-31 12:00:00"
 }
 ```
 
